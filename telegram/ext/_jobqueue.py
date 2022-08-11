@@ -198,7 +198,6 @@ class JobQueue:
             trigger="date",
             run_date=date_time,
             args=(self.application,),
-            timezone=date_time.tzinfo or self.scheduler.timezone,
             **job_kwargs,
         )
 
