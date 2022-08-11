@@ -161,7 +161,7 @@ class TestJobQueue:
         assert self.result == 1
 
     async def test_run_repeating_last_timezone(self, job_queue, timezone):
-        """Test correct scheduling of job when passing a timezone-aware datetime as ``first``"""
+        """Test correct scheduling of job when passing a timezone-aware datetime as ``last``"""
         job_queue.run_repeating(
             self.job_run_once, 0.25, last=dtm.datetime.now(timezone) + dtm.timedelta(seconds=0.4)
         )
