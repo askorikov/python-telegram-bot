@@ -93,6 +93,8 @@ class JobQueue:
             if shift_day and date_time <= datetime.datetime.now(pytz.utc):
                 date_time += datetime.timedelta(days=1)
             return date_time
+        if isinstance(time, datetime.datetime) and time.tzinfo is None:
+            return self.scheduler.timezone.localize(time)
         return time
 
     def set_application(self, application: "Application") -> None:
